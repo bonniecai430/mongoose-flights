@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+  <a href="flights/new">New Flight</a>
+    <a href="/flights">All Flight</a>
     <section>
         <div>Airline:</div>
         <div><%=flight.airline%></div>
@@ -17,5 +19,31 @@
         <div>Departs:</div>
         <div><%=flight.departs%></div>
     </section>
+
+<br><br>
+<h2>Destinations</h2>
+<form method="POST" action="/flights/<%=flight._id%>/destinations">
+<label>Airport:</label>
+<select name="airport">
+  <option value="AUS">AUS</option>
+  <option value="DFW">AFW</option>
+  <option value="DEN">DEN</option>
+  <option value="LAX">LAX</option>
+  <option value="SAN">SAN</option>
+</select>
+<label for="arrival">Arrival:
+  <input type="datetime-local" name="departs">
+</label>
+<input type="submit" value="Add Destination">
+</form>
+
+<br><br>
+<section>
+  <div>Destination</div>
+  <div><%=flight.destinations.airport%></div>
+  <div><%=flight.destinations.arrival%></div>
+<div></div>
+</section>
+
 </body>
 </html>
