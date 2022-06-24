@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const destinationSchema = new Schema({
-   airport:{
+    arrival:Date,
+    airport:{
        type:String,
        emus: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
-   },
-   arrival:Date
+   }
+   
 },
     {
         timestamps: true

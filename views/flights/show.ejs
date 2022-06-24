@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-  <a href="flights/new">New Flight</a>
+  <a href="/flights/new">New Flight</a>
     <a href="/flights">All Flight</a>
     <section>
         <div>Airline:</div>
@@ -32,18 +32,24 @@
   <option value="SAN">SAN</option>
 </select>
 <label for="arrival">Arrival:
-  <input type="datetime-local" name="departs">
+  <input type="datetime-local" name="arrival">
 </label>
 <input type="submit" value="Add Destination">
 </form>
 
 <br><br>
-<section>
-  <div>Destination</div>
-  <div><%=flight.destinations.airport%></div>
-  <div><%=flight.destinations.arrival%></div>
-<div></div>
-</section>
+<table>
+ <thead>Destination</thead>
+ <tbody>
 
+ <%flight.destinations.forEach(function(destination){%>
+  <tr>
+    <td><%= destination.createdAt.toLocaleDateString() %></td>
+  <td><%=destination.arrival%></td>
+  <td><%=destination.airport%></td>
+ </tr>
+ <%})%>
+</tbody>
+</table>
 </body>
 </html>
