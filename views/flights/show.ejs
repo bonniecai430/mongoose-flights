@@ -19,10 +19,24 @@
         <div><%=flight.flightNo%></div>
         <div>Departs:</div>
         <div><%=flight.departs%></div>
-    
+        <div>Ticket:</div>
+        <ul>
+          <%- flight.cast.map(ticket => 
+            `<li>${ticket.seat}</li>`
+          ).join('') %>
+        </ul>
    </section>
+   
+   <form action="/flights/<%= flight._id %>/tickets" method="POST">
+    <select name="ticketId">
+      <%- tickets.map(ticket => 
+        `<option value="${ticket._id}">${ticket.seat}</option>`
+      ).join('') %>
+    </select>
+    <button type="submit">Add to Flight</button>
+  </form>
+  
 
-<div>Ticket:</div>
 
 
 
